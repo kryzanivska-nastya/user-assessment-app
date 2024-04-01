@@ -14,17 +14,8 @@ export class LoginComponent {
 
   login() {
     const credentials = { email: this.email, password: this.password };
-    this.apiService.login(credentials).subscribe({
-      next: (response) => {
-        if (response && response.token) {
-          localStorage.setItem('token', response.token);
-        } else {
-          console.error('Unexpected response:', response);
-        }
-      },
-      error: (error) => {
-        console.error('Login failed:', error);
-      },
+    this.apiService.login(credentials).subscribe((response) => {
+      localStorage.setItem('token', response.token);
     });
   }
 }
