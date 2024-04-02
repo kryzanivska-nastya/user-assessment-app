@@ -1,0 +1,5 @@
+<div *ngFor="let assessment of assessments">
+  <h3>{{ assessment.name }}</h3>
+  <img [src]="assessment.image_url" alt="{{ assessment.name }}" />
+  <a [routerLink]="['/assessment', assessment.id]">View Report</a>
+</div>
